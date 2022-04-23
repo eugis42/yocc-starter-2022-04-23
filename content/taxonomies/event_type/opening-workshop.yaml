@@ -1,0 +1,10 @@
+title: 'Opening Workshop'
+updated_by: 5eadff7d-3e8d-45a4-9cd2-d732ae7834f2
+updated_at: 1649166076
+blueprint: event_type
+localizations:
+  sk:
+    title: 'Otvárací workshop'
+    slug: opening-workshop
+    updated_by: 5eadff7d-3e8d-45a4-9cd2-d732ae7834f2
+    updated_at: 1648486624

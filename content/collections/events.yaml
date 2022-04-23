@@ -1,0 +1,17 @@
+title: Events
+sites:
+  - en
+  - sk
+propagate: false
+template: events/show
+layout: layout
+mount: fe512f39-5cd2-4808-856e-9820fd39f7d2
+taxonomies:
+  - event_type
+revisions: true
+route: '/events/{slug}'
+sort_dir: asc
+default_status: draft
+date_behavior:
+  past: public
+  future: private

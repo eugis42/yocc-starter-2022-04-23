@@ -1,0 +1,10 @@
+title: 'Opening event'
+blueprint: event_type
+updated_by: 5eadff7d-3e8d-45a4-9cd2-d732ae7834f2
+updated_at: 1648062693
+localizations:
+  sk:
+    title: Otváračka
+    slug: otvaracka
+    updated_by: 5eadff7d-3e8d-45a4-9cd2-d732ae7834f2
+    updated_at: 1648062687

@@ -1,0 +1,70 @@
+/* This is all you. */
+
+@font-face {
+    font-family: 'Greed';
+    src: url('../../public/assets/font/Greed-Regular.woff') format('woff');
+    src: url('../../public/assets/font/Greed-Regular.woff2') format('woff2');
+  }
+
+@font-face {
+    font-family: 'Karma';
+    src: url('../../public/assets/font/Karma-Regular.woff') format('woff');
+    src: url('../../public/assets/font/Karma-Regular.woff2') format('woff2');
+  }
+
+.partners-gradient :nth-child(1) {color: #868FFF;}
+.partners-gradient :nth-child(2) {color: #9A96F3;}
+.partners-gradient :nth-child(3) {color: #AE9EE6;}
+.partners-gradient :nth-child(4) {color: #C3A5DA;}
+.partners-gradient :nth-child(5) {color: #D7ACCE;}
+.partners-gradient :nth-child(6) {color: #EBB4C1;}
+.partners-gradient :nth-child(7) {color: #FFBBB5;}
+.partners-gradient :nth-child(8) {color: #FEB3BB;}
+.partners-gradient :nth-child(9) {color: #FDACC0;}
+.partners-gradient :nth-child(10) {color: #FCA4C6;}
+.partners-gradient :nth-child(11) {color: #FB9DCB;}
+.partners-gradient :nth-child(12) {color: #FA95D1;}
+.partners-gradient :nth-child(13) {color: #F98ED6;}
+.partners-gradient :nth-child(14) {color: #F886DC;}
+
+#hero-gradient {
+  background: radial-gradient(circle at center 120%, #ff4eff 0%, #ffbbb5 55%, #ffbbb5 60%, #868fff 100%);
+  animation: sunrise 10s linear infinite;
+}
+
+@keyframes sunrise {
+  0%{
+    filter: hue-rotate(360deg);
+  }
+  50%{
+    filter: hue-rotate(180deg);
+  }
+  100%{
+    filter: hue-rotate(0deg);
+  }
+}
+
+.h-almost-screen {
+  height: 75vh;
+}
+
+@media (min-width: 768px) {
+  .cascade li:nth-child(2) { margin-top: 4em;}
+  .cascade li:nth-child(3) { margin-top: 8em;}
+
+  #bard-content {
+    max-width: 768px!important;
+  }
+  
+  .prose-xl p img, .prose-xl img{
+    max-width: unset;
+    width: 150%;
+    margin-left: -25%;
+  }
+}
+
+input {
+  -webkit-appearance: none!important;
+  -webkit-border-radius: 0!important;
+  border-radius: 0!important;
+}

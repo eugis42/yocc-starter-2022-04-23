@@ -1,0 +1,18 @@
+title: Articles
+sites:
+  - en
+  - sk
+propagate: false
+template: articles/show
+layout: layout
+mount: 3c001b97-d970-4fae-96be-7cc46d16ad1f
+taxonomies:
+  - author
+revisions: true
+route: 'articles/{slug}'
+date: true
+sort_dir: desc
+default_status: draft
+date_behavior:
+  past: public
+  future: private

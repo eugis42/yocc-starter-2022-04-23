@@ -1,0 +1,11 @@
+name: 'Test User'
+roles:
+  - editor
+id: b6441da4-6228-4eb3-8718-de7f0e243624
+password_hash: $2y$10$93hf7i3WIKlMkvydemJj2OST8m8NV0QnbtiCDzHkQ7PdKSH0Lk2WO
+preferences:
+  collections:
+    articles:
+      after_save: continue_editing
+    events:
+      after_save: continue_editing

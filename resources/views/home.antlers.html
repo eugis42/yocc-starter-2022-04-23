@@ -1,0 +1,169 @@
+<div id="hero" class="absolute top-0 w-full h-screen -z-10 overflow-hidden border-b border-black">
+    <div id="hero-gradient" class="w-full h-full"></div>
+</div>
+
+<!-- HERO RESPONSIVE HEADLINES -->
+
+<div class="container mx-auto px-5 h-screen pt-24 pb-10 flex flex-col gap-y-5">
+    {{ if site=="en" }}
+        {{ asset url="/assets/template-images/hero-headline_sm.svg" }}
+            <img data-sal="fade" data-sal-delay="300" data-sal-duration="1000" data-sal-easing="ease-out" class="w-full max-h-full py-5 place-self-center flex-auto md:hidden" src="{{ url }}" alt="{{ alt }}">
+        {{ /asset }}
+        {{ asset url="/assets/template-images/hero-headline_xl.svg" }}
+            <img data-sal="fade" data-sal-delay="300" data-sal-duration="1000" data-sal-easing="ease-out" class="w-full max-h-full py-5 place-self-center flex-auto hidden md:inline xl:hidden" src="{{ url }}" alt="{{ alt }}">
+        {{ /asset }}
+        {{ asset url="/assets/template-images/hero-headline_2xl.svg" }}
+            <img data-sal="fade" data-sal-delay="300" data-sal-duration="1000" data-sal-easing="ease-out" class="w-full max-h-full py-5 place-self-center flex-auto hidden xl:inline" src="{{ url }}" alt="{{ alt }}">
+        {{ /asset }}
+    {{ else  }}
+        {{ asset url="/assets/template-images/hero-headline_sm-sk.svg" }}
+            <img data-sal="fade" data-sal-delay="300" data-sal-duration="1000" data-sal-easing="ease-out" class="w-full max-h-full py-5 place-self-center flex-auto md:hidden" src="{{ url }}" alt="{{ alt }}">
+        {{ /asset }}
+        {{ asset url="/assets/template-images/hero-headline_xl-sk.svg" }}
+            <img data-sal="fade" data-sal-delay="300" data-sal-duration="1000" data-sal-easing="ease-out" class="w-full max-h-full py-5 place-self-center flex-auto hidden md:inline" src="{{ url }}" alt="{{ alt }}">
+        {{ /asset }}
+    {{ /if }}
+    <p data-sal="slide-up" data-sal-easing="ease-out-back" class="text-xl text-center">
+        {{ if site=="en" }}
+            View <a class="underline" href="#events-block">upcoming events</a> or browse through  <a class="underline" href="#articles-block">the articles</a>.
+        {{ else }}
+            Pozrite si <a class="underline" href="#events-block">najbližšie udalosti</a> alebo si prečítajte <a class="underline" href="#articles-block">články</a>.
+        {{ /if }}
+    </p>
+</div>
+
+<div class="container mx-auto px-5 pt-16">
+
+    <!-- FEATURED EVENT -->
+
+        {{ collection:events limit="1" sort="event_start" event_start:is_after="{now}" featured:is="true" }}
+        {{ if no_results }}
+            &nbsp;
+        {{ else }}
+            <h2 data-sal="slide-up" data-sal-easing="ease-out-back" class="text-4xl text-center mb-10 mt-16">{{ if site=="en" }}We recommend{{ else  }}Odporúčame{{ /if }}</h2>
+
+            {{ if cover_image }}
+            <div data-sal="slide-up" data-sal-easing="ease-out" class="w-full -mb-40">
+                <a href="{{ url }}"><img class="transition-all hover:scale-95" src="{{ cover_image }}{{ url }}{{ /cover_image }}"></a>
+            </div>
+            {{ /if }}
+            <div data-sal="slide-up" data-sal-easing="ease-out" class="aspect-[4/5] max-h-80 mx-auto">
+                <a href="{{ url }}">
+                    <span class="w-full h-full flex flex-col text-center p-4 my-5 relative overflow-hidden group transition-all hover:scale-95" style="background: radial-gradient(circle at center 120%, {{gradient_color_bottom}} 10%, {{gradient_color_middle}} 40%, {{gradient_color_middle}} 50%, {{gradient_color_top}} 100%);">
+                        <span class="flex-none justify-self-start text-2xl leading-tight mb-3">
+                            {{ if multiple_day_event }}
+                                {{ if event_end | is_today }}
+                                    {{ if site=="en" }} Ends today {{ else  }} Končí dnes {{ /if }}
+                                {{ else }}
+                                    {{ event_start format="d / m / Y" }} —<br/>{{ event_end format="d / m / Y" }}
+                                {{ /if }}
+                            {{ else }}
+                                {{ if event_start | is_today }}
+                                    {{ if site=="en" }} Today {{ else  }} Dnes {{ /if }}
+                                {{ else }}
+                                    {{ event_start format="d / m / Y" }}
+                                {{ /if }}
+                            {{ /if }} 
+                        </span>
+                        <span class="flex-auto"></span>
+                        <span class="flex-none justify-self-end inline-block align-bottom text-blue text-3xl leading-none">
+                            {{ event_type }}{{ title }}{{ /event_type }}: {{ title }}
+                        </span>
+                        <span class="flex-none justify-self-end text-xl mt-3 leading-tight">
+                            {{ if online_event }} Online {{ else  }} {{ location }} {{ /if }}
+                        </span>
+                    </span>
+                </a>
+            </div>
+        {{ /if }}
+        {{ /collection:events }}
+
+
+    <!-- EVENTS -->
+
+    <h2 data-sal="slide-up" data-sal-easing="ease-out-back" id="events-block" class="text-4xl text-center mb-10 mt-32">{{ if site=="en" }}Upcoming events{{ else  }}Najbližšie udalosti{{ /if }}</h2>
+
+    <ul class="md:grid md:grid-cols-3 md:gap-5 cascade">
+        {{ collection:events limit="3" sort="event_start" event_start:is_after="{today | modify_date:-1 day}" }}
+            {{ if no_results }}
+                <div>&nbsp</div>
+                <h2 data-sal="slide-up" data-sal-easing="ease-out" class="text-2xl text-center mt-10">{{ if site=="en" }}There are no events scheduled right now, please check back later.{{ else }}Momentálne nemáme naplánované žiadne udalosti.{{ /if }}</h2>
+            {{ else }}
+                        <li data-sal="slide-up" data-sal-easing="ease-out" class="aspect-[4/5] max-h-80 mx-auto">
+                            <a href="{{ url }}">
+                                <span class="w-full h-full flex flex-col text-center p-4 my-5 relative overflow-hidden group transition-all hover:scale-95" style="background: radial-gradient(circle at center 120%, {{gradient_color_bottom}} 10%, {{gradient_color_middle}} 40%, {{gradient_color_middle}} 50%, {{gradient_color_top}} 100%);">
+                                    <span class="flex-none justify-self-start text-2xl leading-tight mb-3">
+                                        {{ if multiple_day_event }}
+                                            {{ if event_end | is_today }}
+                                                {{ if site=="en" }} Ends today {{ else  }} Končí dnes {{ /if }}
+                                            {{ else }}
+                                                {{ event_start format="d / m / Y" }} —<br/>{{ event_end format="d / m / Y" }}
+                                            {{ /if }}
+                                        {{ else }}
+                                            {{ if event_start | is_today }}
+                                                {{ if site=="en" }} Today {{ else  }} Dnes {{ /if }}
+                                            {{ else }}
+                                                {{ event_start format="d / m / Y" }}
+                                            {{ /if }}
+                                        {{ /if }} 
+                                    </span>
+                                    <span class="flex-auto"></span>
+                                    <span class="flex-none justify-self-end inline-block align-bottom text-blue text-3xl leading-none">
+                                        {{ event_type }}{{ title }}{{ /event_type }}: {{ title }}
+                                    </span>
+                                    <span class="flex-none justify-self-end text-xl mt-3 leading-tight">
+                                        {{ if online_event }} Online {{ else  }} {{ location }} {{ /if }}
+                                    </span>
+                                    <span class="absolute top-0 left-0 w-full h-full -translate-y-full group-hover:translate-y-0 transition-all" style="background: url('{{ cover_image }}{{ url }}{{ /cover_image }}') no-repeat center; background-size: cover;">
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+
+            {{ /if }}
+        {{ /collection:events }}
+    </ul>
+    <a data-sal="slide-up" data-sal-easing="ease-out-back" class="text-4xl block mt-10 mb-32 text-blue text-center" href="{{ site }}{{ url }}{{ /site }}/calendar">{{ if site=="en" }}All events{{ else  }}Všetky udalosti{{ /if }}</a>
+
+    <!-- ARTICLES -->
+
+    <h2 data-sal="slide-up" data-sal-easing="ease-out-back" id="articles-block" class="text-4xl text-center my-10">{{ if site=="en" }}Latest articles{{ else  }}Najnovšie články{{ /if }}</h2>
+
+    <ul class="md:grid md:grid-cols-3 md:gap-5 cascade">
+        {{ collection:articles sort="date:desc" limit="3" }}
+        {{ if no_results }}
+            <div>&nbsp</div>
+            <h2 data-sal="slide-up" data-sal-easing="ease-out" class="text-2xl text-center mt-10">{{ if site=="en" }}There are no articles to show.{{ else }}Momentálne tu nie sú žiadne články.{{ /if }}</h2>
+            <div>&nbsp</div>
+        {{ else }}
+            <li data-sal="slide-up" data-sal-easing="ease-out" class="aspect-[4/5] max-h-80 mx-auto">
+                <a href="{{ url }}">
+                    <span class="w-full h-full flex flex-col text-center p-4 my-5 relative group transition-all hover:scale-95 hover: border-black border group">
+                        <span class="flex-none justify-self-end inline-block align-bottom text-blue text-3xl leading-none">
+                            {{ title }}
+                        </span>
+                        {{ asset url="/assets/template-images/document-corner.svg" }}<img class="absolute bottom-0 right-0 -mr-px -mb-px h-10 z-20" src="{{ url }}" alt="{{ alt }}">{{ /asset }}
+                        <span class="absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-100 transition-all z-10" style="background: url('{{ cover_image }}{{ url }}{{ /cover_image }}') no-repeat center; background-size: cover;">
+                        </span>
+                    </span>
+                </a>
+            </li>
+        {{ /if }}
+        {{ /collection:articles }}
+    </ul>
+
+    <a data-sal="slide-up" data-sal-easing="ease-out-back" class="text-4xl block mt-10 mb-32 text-blue text-center" href="{{ site }}{{ url }}{{ /site }}/articles">{{ if site=="en" }}All articles{{ else  }}Všetky články{{ /if }}</a>
+
+    <!-- ABOUT -->
+
+    <h2 data-sal="slide-up" data-sal-easing="ease-out" class="text-4xl md:text-6xl !leading-tight md:!leading-none text-center my-10">{{ if site=="en" }}We are a collective of Slovak individuals and organisations that believe creativity can help us better understand and manage climate change.{{ else  }}Sme sieť jednotlivcov a organizácií, ktorí veria, že kreativita nám môže pomôcť lepšie pochopiť a zvládať klimatickú krízu.{{ /if }}</h2>
+
+    <div data-sal="slide-up" data-sal-easing="ease-out" class="text-4xl md:text-6xl mt-10 !leading-tight md:!leading-none partners-gradient text-center">
+        {{ collection:partners}}
+            <a class="hover:text-blue" href="{{ url }}">{{ title }}{{ if last=="true" }}.{{ else }}, {{ /if }}</a>
+        {{ /collection:partners }}
+    </div>
+
+    <a data-sal="slide-up" data-sal-easing="ease-out=back" class="text-4xl block mt-10 mb-16 text-blue text-center" href="{{ site }}{{ url }}{{ /site }}/about-the-project">{{ if site=="en" }}Read about the project{{ else  }}Viac o projekte{{ /if }}</a>
+
+</div>

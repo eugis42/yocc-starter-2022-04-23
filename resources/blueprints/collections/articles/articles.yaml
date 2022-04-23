@@ -1,0 +1,147 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          localizable: true
+          validate:
+            - required
+      -
+        handle: perex
+        field:
+          antlers: false
+          display: Perex
+          type: textarea
+          icon: textarea
+          instructions: 'Will show in big letters in the beginning of an article.'
+          listable: hidden
+          instructions_position: above
+          read_only: false
+          localizable: true
+      -
+        handle: content
+        field:
+          always_show_set_button: false
+          buttons:
+            - h2
+            - h3
+            - bold
+            - italic
+            - unorderedlist
+            - orderedlist
+            - removeformat
+            - quote
+            - anchor
+            - image
+            - table
+            - underline
+            - strikethrough
+            - superscript
+            - subscript
+          container: assets
+          save_html: false
+          toolbar_mode: fixed
+          link_noopener: false
+          link_noreferrer: false
+          target_blank: true
+          link_collections:
+            - events
+            - articles
+          reading_time: true
+          fullscreen: true
+          allow_source: true
+          enable_input_rules: true
+          enable_paste_rules: true
+          antlers: false
+          display: Content
+          type: bard
+          icon: bard
+          localizable: true
+          listable: hidden
+          instructions_position: above
+          read_only: false
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: cover_image
+        field:
+          mode: grid
+          container: assets
+          restrict: false
+          allow_uploads: true
+          show_filename: true
+          max_files: 1
+          display: 'Cover image'
+          type: assets
+          icon: assets
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: date
+        field:
+          type: date
+          required: true
+          validate:
+            - required
+          instructions_position: above
+          listable: true
+          read_only: false
+          mode: single
+          time_enabled: false
+          time_seconds_enabled: false
+          full_width: false
+          inline: false
+          columns: 1
+          rows: 1
+      -
+        handle: video
+        field:
+          display: Video
+          type: video
+          icon: video
+          instructions: 'If the article contains a video, link it here. It will display at the top of the article.'
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: author
+        field:
+          type: terms
+          taxonomies:
+            - author
+          display: Author
+          mode: select
+          instructions_position: above
+          listable: hidden
+          read_only: false
+          max_items: 1
+          create: true
+  meta:
+    display: Meta
+    fields:
+      -
+        handle: meta_fields
+        field:
+          display: 'Meta fields'
+          type: section
+          icon: section
+          instructions: 'These are generated automatically, only change if you have a very good reason to do so.'
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: slug
+        field:
+          type: slug
+          localizable: true
+          instructions_position: above
+          listable: false
+          read_only: false
+          generate: true
+title: Articles

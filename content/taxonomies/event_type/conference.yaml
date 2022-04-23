@@ -1,0 +1,10 @@
+title: Conference
+updated_by: 748751a9-b241-4917-b431-715fb3bb98e4
+updated_at: 1649322442
+blueprint: event_type
+localizations:
+  sk:
+    title: Konferencia
+    slug: conference
+    updated_by: 748751a9-b241-4917-b431-715fb3bb98e4
+    updated_at: 1649322607

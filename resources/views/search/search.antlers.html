@@ -1,0 +1,6 @@
+<div class="container p-5 mx-auto mt-40">
+    <form class="text-3xl" action="{{ if site=="en" }}/en/search-results{{ else }}/search-results{{ /if }}">
+        <input class="border-b-4 border-black block pb-2 w-full" type="search" name="q" placeholder="{{ if site=="en" }}What are you looking for?{{ else }}Čo hľadáte?{{ /if }}">
+        <button class="text-blue mt-2 block w-full text-right" type="submit">{{ if site=="en" }}Search!{{ else }}Hľadaj!{{ /if }}</button>
+    </form>
+</div>

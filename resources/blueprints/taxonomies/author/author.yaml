@@ -1,0 +1,47 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+      -
+        handle: bio
+        field:
+          antlers: false
+          display: Bio
+          type: textarea
+          icon: textarea
+          instructions: 'Short author bio displayed at the end of the article'
+          localizable: true
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: contact_email
+        field:
+          placeholder: author@email.xx
+          input_type: email
+          antlers: false
+          display: 'Contact email'
+          type: text
+          icon: text
+          instructions: 'Will display a contact link below the author bio at the end of author''s article. Won''t display anything if left empty.'
+          listable: true
+          instructions_position: above
+          read_only: false
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          required: true
+          validate:
+            - required
+title: Author

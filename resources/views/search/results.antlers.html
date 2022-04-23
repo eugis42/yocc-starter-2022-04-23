@@ -1,0 +1,73 @@
+<div class="container p-5 mx-auto mt-40">
+    <form class="text-3xl" action="{{ if site=="en" }}/en/search-results{{ else }}/search-results{{ /if }}">
+        <input class="border-b-4 border-black block pb-2 w-full" value="{{ get:q }}" type="search" name="q" placeholder="{{ if site=="en" }}What are you looking for?{{ else }}Čo hľadáte?{{ /if }}">
+        <button class="text-blue mt-2 block w-full text-right" type="submit">{{ if site=="en" }}Search!{{ else }}Hľadaj!{{ /if }}</button>
+    </form>
+    <h2 class="text-3xl text-center mt-10">{{ if site=="en" }}Events{{ else }}Kalendár{{ /if }}</h2>
+    <ul class="md:grid md:grid-cols-3 md:gap-5 mt-16">
+        {{ search:results index="default" collection:is="events" }}
+            {{ if no_results }}
+                <li>&nbsp;</li>
+                <li>
+                    <h2 class="text-xl text-center mt-10">{{ if site=="en" }}☹ No events were found for "{{ else }} ☹ Nenašli sa žiadne udalosti pre hľadaný výraz "{{ /if }}{{ get:q }}".</h2>
+                </li>
+            {{ else }}
+                <li class="aspect-[4/5] max-h-80 mx-auto">
+                    <a href="{{ url }}">
+                        <span class="w-full h-full flex flex-col text-center p-4 my-5 relative overflow-hidden group transition-all hover:scale-95 {{ if multiple_day_event and event_end | is_before:now and !event_end | is_today or !multiple_day_event and event_start | is_before:now and !event_start | is_today }}grayscale{{ /if }}" style="background: radial-gradient(circle at center 120%, {{gradient_color_bottom}} 10%, {{gradient_color_middle}} 40%, {{gradient_color_middle}} 50%, {{gradient_color_top}} 100%);">
+                            <span class="flex-none justify-self-start text-2xl leading-tight mb-3">
+                                {{ if multiple_day_event }}
+                                    {{ if event_end | is_today }}
+                                        {{ if site=="en" }} Ends today {{ else  }} Končí dnes {{ /if }}
+                                    {{ else }}
+                                        {{ event_start format="d / m / Y" }} —<br/>{{ event_end format="d / m / Y" }}
+                                    {{ /if }}
+                                {{ else }}
+                                    {{ if event_start | is_today }}
+                                        {{ if site=="en" }} Today {{ else  }} Dnes {{ /if }}
+                                    {{ else }}
+                                        {{ event_start format="d / m / Y" }}
+                                    {{ /if }}
+                                {{ /if }} 
+                            </span>
+                            <span class="flex-auto"></span>
+                            <span class="flex-none justify-self-end inline-block align-bottom text-blue text-3xl leading-none">
+                                {{ event_type }}{{ title }}{{ /event_type }}: {{ title }}
+                            </span>
+                            <span class="flex-none justify-self-end text-xl mt-3 leading-tight">
+                                {{ if online_event }} Online {{ else  }} {{ location }} {{ /if }}
+                            </span>
+                            <span class="absolute top-0 left-0 w-full h-full -translate-y-full group-hover:translate-y-0 transition-all" style="background: url('{{ cover_image }}{{ url }}{{ /cover_image }}') no-repeat center; background-size: cover;">
+                            </span>
+                        </span>
+                    </a>
+                </li>
+            {{ /if }}
+        {{ /search:results }}
+    </ul>
+
+    <h2 class="text-3xl text-center mt-16">{{ if site=="en" }}Articles{{ else }}Články{{ /if }}</h2>
+    <ul class="md:grid md:grid-cols-3 md:gap-5 mt-16">
+        {{ search:results index="default" collection:is="articles" }}
+            {{ if no_results }}
+                <li>&nbsp;</li>
+                <li>
+                    <h2 class="text-xl text-center mt-10">{{ if site=="en" }}☹ No articles were found for "{{ else }} ☹ Nenašli sa žiadne články pre hľadaný výraz "{{ /if }}{{ get:q }}".</h2>
+                </li>
+            {{ else }}
+                <li class="aspect-[4/5] max-h-80 mx-auto">
+                    <a href="{{ url }}">
+                        <span class="w-full h-full flex flex-col text-center p-4 my-5 relative group transition-all hover:scale-95 hover: border-black border group">
+                            <span class="flex-none justify-self-end inline-block align-bottom text-blue text-3xl leading-none">
+                                {{ title }}
+                            </span>
+                            {{ asset url="/assets/template-images/document-corner.svg" }}<img class="absolute bottom-0 right-0 -mr-px -mb-px h-10 z-20" src="{{ url }}" alt="{{ alt }}">{{ /asset }}
+                            <span class="absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-100 transition-all z-10" style="background: url('{{ cover_image }}{{ url }}{{ /cover_image }}') no-repeat center; background-size: cover;">
+                            </span>
+                        </span>
+                    </a>
+                </li>
+            {{ /if }}
+        {{ /search:results }}
+    </ul>
+</div>

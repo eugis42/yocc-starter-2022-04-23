@@ -1,0 +1,10 @@
+title: Exhibition
+updated_by: a1054a8c-ce4f-42f3-98db-732d64f7c284
+updated_at: 1647516547
+blueprint: event_type
+localizations:
+  sk:
+    title: Výstava
+    slug: exhibition
+    updated_by: a1054a8c-ce4f-42f3-98db-732d64f7c284
+    updated_at: 1647516553

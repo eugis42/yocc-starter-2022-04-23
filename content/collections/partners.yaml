@@ -1,0 +1,15 @@
+title: Partners
+sites:
+  - en
+  - sk
+propagate: false
+template: partners/show
+layout: layout
+mount: 83f5f8c6-7c41-459f-9200-9b54d8000312
+revisions: false
+route: '/partners/{slug}'
+sort_dir: asc
+default_status: draft
+date_behavior:
+  past: public
+  future: private

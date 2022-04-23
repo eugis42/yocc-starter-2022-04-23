@@ -1,0 +1,14 @@
+<div class="container p-5 mt-40 mx-auto">
+    {{ partner_logo }}
+        <img class="max-w-xs mx-auto" src="{{ url }}" alt="{{ alt }}" />
+    {{ /partner_logo }}
+    <h1 class="text-5xl text-center mt-16 mb-10">{{ title }}</h1>
+    <div class="prose-xl prose-headings:font-normal prose-p:font-karma prose-ul:list-disc prose-ol:list-decimal prose-blockquote:text-blue prose-blockquote:text-3xl prose-a:text-blue prose-a:underline !leading-snug">
+        {{ content }}
+    </div>
+    {{ if partner_website | is_blank }}{{ else }} 
+        <div class="text-center mt-16">
+            <a class="text-3xl text-blue after:content-['_↗']" href="{{ partner_website }}" target="_blank" >{{ if site=="en" }}Go to partner website{{ else  }}Prejsť na web partnera{{ /if }}</a>
+        </div>
+    {{ /if }}
+</div>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 250 250" enable-background="new 0 0 250 250" xml:space="preserve">
+<g>
+	
+		<radialGradient id="SVGID_1_" cx="122.0935" cy="-1284.9889" r="223.8366" fx="122.0724" fy="-1280.6532" gradientTransform="matrix(1.2511 0 0 1.25 -31.3566 1885.75)" gradientUnits="userSpaceOnUse">
+		<stop  offset="1.313304e-02" style="stop-color:#FF36FF"/>
+		<stop  offset="7.032757e-02" style="stop-color:#FF55EC"/>
+		<stop  offset="0.146" style="stop-color:#FF78D7"/>
+		<stop  offset="0.223" style="stop-color:#FF93C7"/>
+		<stop  offset="0.3009" style="stop-color:#FFA7BB"/>
+		<stop  offset="0.38" style="stop-color:#FFB2B4"/>
+		<stop  offset="0.4624" style="stop-color:#FFB6B2"/>
+		<stop  offset="0.5397" style="stop-color:#F8B4B6"/>
+		<stop  offset="0.6502" style="stop-color:#E5AEC2"/>
+		<stop  offset="0.7805" style="stop-color:#C7A4D5"/>
+		<stop  offset="0.9248" style="stop-color:#9C96EF"/>
+		<stop  offset="1" style="stop-color:#838EFF"/>
+	</radialGradient>
+	<path fill="url(#SVGID_1_)" d="M230.2,250H19.6c-10.9,0-19.8-8.9-19.8-19.8V19.8C-0.2,8.9,8.6,0,19.6,0l210.6,0
+		C241.1,0,250,8.9,250,19.8v210.4C250,241.1,241.1,250,230.2,250z"/>
+</g>
+<g>
+	<path d="M108.4,51c0-8.7-6-14.7-14.4-14.7c-9.4,0-15.7,8.1-15.7,20.1L69.3,56C69.5,39.6,79.8,28.5,94,28.5c14,0,23.9,9.2,23.9,22.6
+		c0,17.7-13.6,29.8-35.5,51.3H118v7.8H69.3v-5.6C94.7,78.9,108.4,68,108.4,51z"/>
+	<path d="M127.4,70c0-25.7,9.7-41.6,26.7-41.6c16.8,0,26.6,15.9,26.6,41.6c0,25.6-9.8,41.6-26.6,41.6
+		C137.1,111.6,127.4,95.6,127.4,70z M154.1,103.8c11.4,0,17-12.8,17-33.7c0-21.1-5.6-33.7-17-33.7c-11.4,0-17.3,12.7-17.3,33.7
+		C136.9,91,142.7,103.8,154.1,103.8z"/>
+	<path d="M108.4,162.4c0-8.7-6-14.7-14.4-14.7c-9.4,0-15.7,8.1-15.7,20.1l-9.1-0.5c0.2-16.3,10.5-27.5,24.7-27.5
+		c14,0,23.9,9.2,23.9,22.6c0,17.7-13.6,29.8-35.5,51.3H118v7.8H69.3v-5.6C94.7,190.2,108.4,179.3,108.4,162.4z"/>
+	<path d="M168.1,162.4c0-8.7-6-14.7-14.4-14.7c-9.4,0-15.7,8.1-15.7,20.1l-9.1-0.5c0.2-16.3,10.5-27.5,24.7-27.5
+		c14,0,23.9,9.2,23.9,22.6c0,17.7-13.6,29.8-35.5,51.3h35.5v7.8h-48.7v-5.6C154.4,190.2,168.1,179.3,168.1,162.4z"/>
+</g>
+</svg>

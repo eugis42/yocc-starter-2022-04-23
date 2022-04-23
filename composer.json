@@ -1,0 +1,9 @@
+{
+    "name": "my-vendor-name/yocc-starter-2022-04-23",
+    "extra": {
+        "statamic": {
+            "name": "Yocc Starter 2022 04 23",
+            "description": "Yocc Starter 2022 04 23 starter kit"
+        }
+    }
+}

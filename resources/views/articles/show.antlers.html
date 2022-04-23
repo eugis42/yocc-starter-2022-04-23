@@ -1,0 +1,31 @@
+<div id="cover-image" class="w-full {{ if cover_image }}h-almost-screen mb-16{{ else }}mb-40{{ /if }} overflow-hidden bg-cover bg-center" style="background-image: url('{{ cover_image }}{{ url }}{{ /cover_image }}')">
+</div>
+
+<div class="container p-5 mx-auto">
+    <h1 class="text-5xl md:text-7xl lg:text-8xl text-center">{{ title }}</h1>
+    <div class="text-3xl md:text-4xl my-24 text-center">
+        {{ perex }}
+    </div>
+    {{ if video }}
+        {{ if video | is_embeddable }}
+            <!-- Youtube and Vimeo -->
+            <iframe class="w-full aspect-16/9 my-10" src="{{ video | embed_url }}" ...></iframe>
+        {{ else }}
+            <!-- Other HTML5 video types -->
+            <video class="w-full aspect-16/9 my-10" src="{{ video | embed_url }}" ...></video>
+        {{ /if }}
+    {{ /if }}
+    <div id="bard-content" class="prose-xl prose-headings:font-normal prose-p:font-karma prose-ul:list-disc prose-ol:list-decimal prose-blockquote:text-blue prose-blockquote:text-3xl prose-a:text-blue prose-a:underline !leading-snug mx-auto">
+        {{ content }}
+    </div>
+    <div class="prose mt-16 mx-auto max-w-sm font-greed prose-a:text-blue !leading-snug text-center">
+        <p>{{ if site=="en" }}Published {{ else }}Publikované {{ /if }}{{ date }}</p>
+        {{ author }}
+            <p>{{ if site=="en" }}Author: {{ else }}Autor {{ /if }}<br/>{{ title }}</p>
+            <p>{{ bio }}</p>
+            {{ if contact_email }}
+            <p>{{ if site=="en" }}Feel like discussing the topic?{{ else }}Chcete diskutovať o tejto téme?{{ /if }}<br/><a href="mailto:{{ contact_email }}">{{ if site=="en" }}Send {{ title }} an email.{{ else }}Pošlite email autorovi/autorke {{ title }}.{{ /if }}</a></p>
+            {{ /if }}
+        {{ /author }}
+    </div>
+</div>

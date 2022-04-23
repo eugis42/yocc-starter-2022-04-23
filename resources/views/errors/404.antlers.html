@@ -1,0 +1,17 @@
+<div class="container p-5 mx-auto">
+    <h1 class="text-5xl md:text-7xl lg:text-8xl text-center mt-40">
+        {{ if site=="en" }}Four, oh four!{{ else }}Štyristoštyri hrmených!{{ /if }}
+    </h1>
+    <h2 class="text-4xl mt-16 text-center">
+        {{ if site=="en" }}
+            <p>You just navigated to an unexpected (and non-existent) part of our website.</p>
+        {{ else }}
+            <p>Dostali ste na na neočakávanú (a neexistujúcu) časť nášho webu.</p>
+        {{ /if }}
+    </h2> 
+    <p class="text-center text-4xl mt-16">
+        <a class="text-blue" href="{{ site }}{{ url }}{{ /site }}/search">{{ if site=="en" }}Try search{{ else  }}Skúste vyhľadávanie{{ /if }}</a>
+        {{ if site=="en" }}, or go to {{ else  }}alebo prejdite na {{ /if }}
+        <a class="text-blue" href="{{ site }}{{ url }}{{ /site }}">{{ if site=="en" }}the homepage{{ else  }}hlavnú stránku{{ /if }}</a>. 
+    </p>
+</div>

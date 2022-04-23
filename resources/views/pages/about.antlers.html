@@ -1,0 +1,15 @@
+<div class="container p-5 mx-auto mt-40">
+    <div class="prose-xl prose-headings:font-normal prose-p:font-karma prose-ul:list-disc prose-ol:list-decimal prose-blockquote:text-blue prose-blockquote:text-3xl prose-a:text-blue prose-a:underline !leading-snug">
+        {{ content }}
+    </div>
+    <div class="text-4xl md:text-5xl mt-10 !leading-tight md:!leading-none partners-gradient">
+        {{ collection:partners}}
+            <a class="hover:text-blue" href="{{ url }}">{{ title }}{{ if last=="true" }}.{{ else }}, {{ /if }}</a>
+        {{ /collection:partners }}
+    </div>
+    <div class="prose-2xl mt-10 prose-headings:font-normal prose-ul:list-disc prose-ol:list-decimal prose-blockquote:text-blue prose-blockquote:text-3xl prose-a:text-blue prose-a:underline !leading-snug">
+        {{ get_content from="/credits" }}
+            {{ content }}
+        {{ /get_content }}
+    </div>
+</div>

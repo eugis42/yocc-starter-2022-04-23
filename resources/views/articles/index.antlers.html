@@ -1,0 +1,19 @@
+<div class="container p-5 mt-40 mx-auto">
+    <h1 class="text-5xl text-center">{{ title }}</h1>
+    <ul class="md:grid md:grid-cols-3 md:gap-5 mt-16">
+        {{ collection:articles sort="date:desc" }}
+        <li class="aspect-[4/5] max-h-80 mx-auto">
+            <a href="{{ url }}">
+                <span class="w-full h-full flex flex-col text-center p-4 my-5 relative group transition-all hover:scale-95 hover: border-black border group">
+                    <span class="flex-none justify-self-end inline-block align-bottom text-blue text-3xl leading-none">
+                        {{ title }}
+                    </span>
+                    {{ asset url="/assets/template-images/document-corner.svg" }}<img class="absolute bottom-0 right-0 -mr-px -mb-px h-10 z-20" src="{{ url }}" alt="{{ alt }}">{{ /asset }}
+                    <span class="absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-100 transition-all z-10" style="background: url('{{ cover_image }}{{ url }}{{ /cover_image }}') no-repeat center; background-size: cover;">
+                    </span>
+                </span>
+            </a>
+        </li>
+        {{ /collection:articles }}
+    </ul>
+</div>

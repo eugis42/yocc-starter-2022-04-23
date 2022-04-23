@@ -1,0 +1,31 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: logo
+        field:
+          mode: list
+          container: partners
+          folder: /
+          restrict: true
+          allow_uploads: true
+          show_filename: true
+          display: Logo
+          type: assets
+          icon: assets
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: link_to_partner_web
+        field:
+          placeholder: 'https://partner.web'
+          input_type: url
+          antlers: false
+          display: 'Link to partner web'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false

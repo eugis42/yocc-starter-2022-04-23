@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="{{ site:short_locale }}" class="font-greed">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{ title }} — {{ if site=="en" }}2022, Year of Climate Care{{ else  }} 2022, Rok pre klímu{{ /if }}</title>
+        {{ asset url="/assets/template-images/favicon.ico" }}<link rel="icon" href="{{ url }}" sizes="any">{{ /asset }}
+        {{ asset url="/assets/template-images/favicon.svg" }}<link rel="icon" href="{{ url }}" type="image/svg+xml">{{ /asset }}
+        <link rel="stylesheet" href="{{ mix src='css/tailwind.css' }}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"> 
+
+        <!--SAL SCROLL ANIMATION-->
+        <link rel="stylesheet" href="{{ site name:is="Slovak" }}{{ url }}{{ /site }}/js/sal.js/dist/sal.css">
+        <script src="{{ site name:is="Slovak" }}{{ url }}{{ /site }}/js/sal.js/dist/sal.js"></script>
+
+        <!--MATOMO ANALYTICS-->
+        <script src="{{ site name:is="Slovak" }}{{ url }}{{ /site }}/js/matomo.js"></script>
+
+        <!--FB TAGS -->
+        <meta property="og:image" content="{{ asset url="/assets/template-images/YOCC-Social-Generic-v01-05.png" }}{{ url }}{{ /asset }}" />
+        <meta property="og:image" content="{{ cover_image }}{{ url }}{{ /cover_image }}" />
+    </head>
+    <body>
+        <div data-sal="slide-down" data-sal-easing="ease-out-back" id="branding" class="mt-5 absolute top-0 w-full">
+            <a href="{{ site }}{{ url }}{{ /site }}">
+                {{ if site=="en" }}
+                {{ asset url="/assets/template-images/yocc-logo-01.svg" }}<img class="h-24 mx-auto" src="{{ url }}" alt="{{ alt }}">{{ /asset }}
+                {{ else  }}
+                {{ asset url="/assets/template-images/yocc-logo-02.svg" }}<img class="h-24 mx-auto" src="{{ url }}" alt="{{ alt }}">{{ /asset }}
+                {{ /if }}
+            </a>
+        </div>
+        <div id="menu" class="w-screen h-screen md:w-1/3 lg:w-1/4 p-12 top-0 bottom-0 md:right-0 z-50 fixed bg-white transform transition-all translate-x-full md:border-l md:border-black">
+            <ul class="w-full h-2/3 text-4xl flex flex-col text-blue">
+                {{ nav:main_menu }}
+                    <li class="flex-auto translate hover:-translate-x-3 transition-all"><a href="{{ url }}">{{ title }}</a></li>
+                {{ /nav:main_menu }}
+            </ul>
+            <div class="h-1/3 w-full text-2xl flex flex-col justify-end">
+                <ul id="language-switcher">
+                    {{ locales current_first="false" }}
+                        {{ if is_current}}
+                            <li class="inline-block">{{ locale:attributes:abbreviation }}</li>
+                        {{ else }}
+                            <li class="inline-block"><a class="text-blue" href="{{ permalink }}">{{ locale:attributes:abbreviation }}</a></li>
+                        {{ /if }}
+                        {{ if last=="true" }}{{ else }} / {{ /if }}
+                    {{ /locales }}
+                </ul>
+            </div>
+        </div>
+        <button id="menu-button" class="fixed top-9 right-2 rounded-full w-16 h-16 z-50 transition-all transform hover:bg-white hover:scale-90" onclick="navToggle();">
+            <img id="button-open" class="transition-all duration-300 w-8 h-8 m-4 object-center absolute inset-0 transform" src="{{ site name:is="Slovak" }}{{ url }}{{ /site }}/assets/template-images/menu-burger.svg">
+            <img id="button-close" class="transition-all duration-300 w-8 h-8 m-4 object-center absolute inset-0 transform translate-x-24" src="{{ site name:is="Slovak" }}{{ url }}{{ /site }}/assets/template-images/menu-burger-x.svg">
+        </button>
+
+        <!-- SEARCH ICON-->
+        <a id="search-button" class="invisible md:visible fixed top-9 right-16 rounded-full w-16 h-16 z-40 transition-all transform hover:bg-white hover:scale-90" href="{{ site }}{{ url }}{{ /site }}/search">
+            <img id="button-search" class="transition-all duration-300 w-8 h-8 m-4 object-center absolute inset-0 transform" src="{{ site name:is="Slovak" }}{{ url }}{{ /site }}/assets/template-images/menu-search.svg">
+        </a>
+
+        <!-- LANGUAG SWITCHER ICON -->
+
+        <div id="language-switcher-icon" class="text-2xl invisible md:visible fixed top-9 right-32 pt-4 px-4 h-16 z-40 transition-all transform hover:bg-white rounded hover:scale-90">
+            <ul id="language-switcher">
+                {{ locales current_first="false" }}
+                    {{ if is_current}}
+                        <li class="inline-block">{{ locale:attributes:abbreviation }}</li>
+                    {{ else }}
+                        <li class="inline-block"><a class="text-blue" href="{{ permalink }}">{{ locale:attributes:abbreviation }}</a></li>
+                    {{ /if }}
+                    {{ if last=="true" }}{{ else }} / {{ /if }}
+                {{ /locales }}
+            </ul>
+        </div>
+
+        <div>
+            {{ template_content }}
+        </div>
+        <div id="footer" class="mt-32">
+            <div class="container p-5 mx-auto relative">
+                <a data-sal="slide-up" data-sal-easing="ease-out" class="block" href="{{ site }}{{ url }}{{ /site }}">
+                    {{ if site=="en" }}
+                    {{ asset url="/assets/template-images/logo-block_en.svg" }}<img class="h-44 mx-auto" src="{{ url }}" alt="{{ alt }}">{{ /asset }}
+                    {{ else  }}
+                    {{ asset url="/assets/template-images/logo-block_sk.svg" }}<img class="h-44 mx-auto" src="{{ url }}" alt="{{ alt }}">{{ /asset }}
+                    {{ /if }}
+                </a>
+
+                <ul data-sal="slide-up" data-sal-easing="ease-out" class="w-full h-2/3 text-xl text-center mt-10">
+                    {{ nav:main_menu }}
+                        <li class="inline-block"><a class="text-blue" href="{{ url }}">{{ title }}</a>{{ if last=="true" }}.{{ else }}, {{ /if }}</li>
+                    {{ /nav:main_menu }}
+                </ul>
+                <div class="w-full h-2/3 text-xl text-center mb-10">
+                    {{ if site=="en" }}
+                        The event takes place under the auspices of the President of the Slovak Republic, Zuzana Čaputová.
+                    {{ else }}
+                        Nad projektom prevzala záštitu prezidentka Slovenskej republiky pani Zuzana Čaputová.
+                    {{ /if }}
+                </div>
+                <ul data-sal="slide-up" data-sal-easing="ease-out" class="grid grid-cols-4 gap-5 mt-16 mb-10">
+                    {{ collection:footer_logos }}
+                        <li class="place-self-center">
+                            <a href="{{ link_to_partner_web }}"><img class="md:w-24 md:max-h-24" src="{{ logo:url }}"></a>
+                        </li>
+                    {{ /collection:footer_logos }}
+                </ul>
+            </div>
+        </div>
+        <script src="{{ mix src='/js/site.js' }}"></script>
+        <script src="{{ site name:is="Slovak" }}{{ url }}{{ /site }}/js/menu-toggle.js"></script>
+
+        <!-- SAL SCROLL ANIMATION -->
+        <script>sal({threshold: 1,});;</script>
+
+    </body>
+</html>
